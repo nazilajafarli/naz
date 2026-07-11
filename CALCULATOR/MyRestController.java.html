@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>MyRestController.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MyRestController.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">naz</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">naz</span><span class="s2">.</span><span class="s1">dto</span><span class="s2">.</span><span class="s1">SumRequest</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">springframework</span><span class="s2">.</span><span class="s1">web</span><span class="s2">.</span><span class="s1">bind</span><span class="s2">.</span><span class="s1">annotation</span><span class="s2">.*;</span>
+
+<span class="s1">@RestController</span>
+<span class="s1">@RequestMapping</span><span class="s2">(</span><span class="s3">&quot;/api&quot;</span><span class="s2">)</span>
+<span class="s0">public class </span><span class="s1">MyRestController </span><span class="s2">{</span>
+    <span class="s1">@GetMapping</span><span class="s2">(</span><span class="s3">&quot;/hello&quot;</span><span class="s2">)</span>
+    <span class="s0">public </span><span class="s1">String hello</span><span class="s2">(){</span>
+        <span class="s0">return</span><span class="s2">(</span><span class="s3">&quot;Hello from gh&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+    <span class="s1">@PostMapping</span><span class="s2">(</span><span class="s3">&quot;/sum&quot;</span><span class="s2">)</span>
+    <span class="s0">public int </span><span class="s1">sum</span><span class="s2">(</span><span class="s1">@RequestBody SumRequest request</span><span class="s2">){</span>
+        <span class="s0">return </span><span class="s1">request</span><span class="s2">.</span><span class="s1">getA</span><span class="s2">() + </span><span class="s1">request</span><span class="s2">.</span><span class="s1">getB</span><span class="s2">();</span>
+    <span class="s2">}</span>
+    <span class="s1">@PostMapping</span><span class="s2">(</span><span class="s3">&quot;/subtract&quot;</span><span class="s2">)</span>
+    <span class="s0">public int </span><span class="s1">subtract</span><span class="s2">(</span><span class="s1">@RequestBody SumRequest request</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">request</span><span class="s2">.</span><span class="s1">getA</span><span class="s2">() - </span><span class="s1">request</span><span class="s2">.</span><span class="s1">getB</span><span class="s2">();</span>
+    <span class="s2">}</span>
+    <span class="s1">@PostMapping</span><span class="s2">(</span><span class="s3">&quot;/multiplication&quot;</span><span class="s2">)</span>
+    <span class="s0">public int </span><span class="s1">multiplication</span><span class="s2">(</span><span class="s1">@RequestBody SumRequest request</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">request</span><span class="s2">.</span><span class="s1">getA</span><span class="s2">() * </span><span class="s1">request</span><span class="s2">.</span><span class="s1">getB</span><span class="s2">();</span>
+    <span class="s2">}</span>
+    <span class="s1">@PostMapping</span><span class="s2">(</span><span class="s3">&quot;/deviation&quot;</span><span class="s2">)</span>
+    <span class="s0">public int </span><span class="s1">deviation</span><span class="s2">(</span><span class="s1">@RequestBody SumRequest request</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">request</span><span class="s2">.</span><span class="s1">getB</span><span class="s2">() == </span><span class="s4">0</span><span class="s2">) {</span>
+            <span class="s0">return </span><span class="s4">0</span><span class="s2">;</span>
+        <span class="s2">}</span>
+            <span class="s0">return </span><span class="s1">request</span><span class="s2">.</span><span class="s1">getA</span><span class="s2">() / </span><span class="s1">request</span><span class="s2">.</span><span class="s1">getB</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
